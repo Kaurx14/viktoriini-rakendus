@@ -8,7 +8,7 @@ Tegemist on viktoriini rakendusega, kus kasutajale kuvatakase küsimusi. Küsimu
 
 - Esitatakse 5 küsimust
 - Igal küsimusel on 3 vastusevarianti, millest 1 on õige
-- Pärast küsimusele vastamist, saab kasutaja kohe tagasisidet
+- Pärast küsimusele vastamist saab kasutaja kohe tagasisidet
 - Viktoriini lõpus kuvatakse tulemused tabelina
 - Lõpus kuvatakse ka kasutaja skoor ning isikupärastatud sõnum
 - Leht toetab nii eesti kui ka inglise keelt
