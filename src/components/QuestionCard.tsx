@@ -6,11 +6,12 @@ type Props = {
     question: Question
     questionIndex: number
     totalQuestions: number
+    currentScore: number
     onAnswer: (isCorrect: boolean, selectedId: string) => void
 }
   
 
-export function QuestionCard({ question, questionIndex, totalQuestions, onAnswer } : Props) {
+export function QuestionCard({ question, questionIndex, totalQuestions, currentScore, onAnswer } : Props) {
     const [selected, setSelected] = useState<string | null>(null)
     const [showFeedback, setShowFeedback] = useState(false)
 
@@ -29,8 +30,14 @@ export function QuestionCard({ question, questionIndex, totalQuestions, onAnswer
 
     return (
         <div className="max-w-xl w-full bg-white border border-black rounded-none p-6 shadow-sm">
-            <div className="text-sm text-gray-500 mb-2">
-                {t('questionLabel', { current: questionIndex + 1, total: totalQuestions })}
+            <div className="mb-2 flex items-center justify-between gap-4 text-sm text-gray-500">
+                <div>
+                    {t('questionLabel', { current: questionIndex + 1, total: totalQuestions })}
+                </div>
+
+                <div>
+                    {t('currentScoreLabel', { score: currentScore })}
+                </div>
             </div>
 
             <div className="mb-6 h-2 w-full overflow-hidden rounded-none bg-gray-200">

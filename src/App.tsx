@@ -5,6 +5,9 @@ import { ResultsTable } from './components/ResultsTable'
 import { Footer } from './components/Footer'
 import { questions } from './data/questions'
 
+// Et testid ei võtaks nii kaua aega
+const KUSIMUSE_VAHETUSE_VIIVITUS_MS = import.meta.env.VITE_E2E === 'true' ? 100 : 3000
+
 // Info kasutaja vastuse kohta
 type UserAnswer = {
   questionId: string
@@ -15,6 +18,7 @@ type UserAnswer = {
 function App() {
   const [index, setIndex] = useState(0)
   const [answers, setAnswers] = useState<UserAnswer[]>([])
+  const punktisumma = answers.filter((answer) => answer.isCorrect).length
 
   const handleAnswer = (
     isCorrect: boolean,
@@ -35,7 +39,7 @@ function App() {
     // 3 sekki ja siis järgmine küsimus
     setTimeout(() => {
       setIndex((prev) => prev + 1)
-    }, 3000)
+    }, KUSIMUSE_VAHETUSE_VIIVITUS_MS)
   }
 
   // Kui kasutaja alustab viktoriini uuesti
@@ -53,12 +57,13 @@ function App() {
           {questions[index] && (
             <QuestionCard
               key={questions[index].id}
-              question={questions[index]}
-              questionIndex={index}
-              totalQuestions={questions.length}
-              onAnswer={handleAnswer}
-            />
-          )}
+            question={questions[index]}
+            questionIndex={index}
+            totalQuestions={questions.length}
+            currentScore={punktisumma}
+            onAnswer={handleAnswer}
+          />
+        )}
         </div>
 
         {!questions[index] && (

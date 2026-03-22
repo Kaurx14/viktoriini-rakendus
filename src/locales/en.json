@@ -3,6 +3,7 @@
   "languageSwitcherLabel": "Language switcher",
   "logoAlt": "Statistics Estonia logo",
   "questionLabel": "Question {{current}} / {{total}}",
+  "currentScoreLabel": "Score: {{score}}",
   "correctAnswer": "Correct Answer!",
   "wrongAnswer": "Wrong. The correct answer is:",
   "resultsTitle": "Results",

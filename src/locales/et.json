@@ -3,6 +3,7 @@
   "languageSwitcherLabel": "Keele valik",
   "logoAlt": "Statistikaameti logo",
   "questionLabel": "Küsimus {{current}} / {{total}}",
+  "currentScoreLabel": "Punktisumma: {{score}}",
   "correctAnswer": "Õige vastus!",
   "wrongAnswer": "Vale vastus. Õige vastus on:",
   "resultsTitle": "Tulemused",
