@@ -3,31 +3,42 @@ import { useTranslation } from 'react-i18next'
 export function Header() {
   const { i18n, t } = useTranslation()
   const language = i18n.resolvedLanguage === 'en' ? 'en' : 'et'
+  const containerClass = 'mx-auto w-[min(1400px,calc(100%-20px))] sm:w-[min(1400px,calc(100%-32px))]'
+  const languageButtonClass =
+    'cursor-pointer border-0 bg-transparent p-0 text-[13px] leading-[1.2] font-bold sm:text-[14px]'
 
   return (
-    <header className="header">
-      <div className="top-bar">
-        <div className="top-bar__inner">
-          <span className="top-bar__title">{t('topBarTitle')}</span>
+    <header className="w-full">
+      <div className="bg-black text-white">
+        <div
+          className={`${containerClass} flex min-h-10 items-center justify-between gap-4`}
+        >
+          <span className="text-[13px] leading-[1.2] font-bold sm:text-[14px]">
+            {t('topBarTitle')}
+          </span>
 
           <div
-            className="language-switch"
+            className="flex items-center gap-2"
             role="group"
             aria-label={t('languageSwitcherLabel')}
           >
             <button
-              className={`language-switch__button${language === 'et' ? ' is-active' : ''}`}
+              className={`${languageButtonClass} ${
+                language === 'et' ? 'text-white' : 'text-white/76'
+              }`}
               type="button"
               onClick={() => void i18n.changeLanguage('et')}
               aria-pressed={language === 'et'}
             >
               EST
             </button>
-            <span className="language-switch__divider" aria-hidden="true">
+            <span className="text-white/76" aria-hidden="true">
               |
             </span>
             <button
-              className={`language-switch__button${language === 'en' ? ' is-active' : ''}`}
+              className={`${languageButtonClass} ${
+                language === 'en' ? 'text-white' : 'text-white/76'
+              }`}
               type="button"
               onClick={() => void i18n.changeLanguage('en')}
               aria-pressed={language === 'en'}
@@ -38,11 +49,12 @@ export function Header() {
         </div>
       </div>
 
-      <div className="site-nav">
-        <div className="site-nav__inner">
-          <a className="site-nav__logo-link" href="/" aria-label={t('logoAlt')}>
-            {/* <div className="site-nav__logo-placeholder">{t('logoText')}</div> */}
-            <img className="site-nav__logo-placeholder" src="ES_Logo.svg" alt={t('logoAlt')} />
+      <div className="border-b border-[#dddddd] bg-[radial-gradient(circle,rgba(0,0,0,0.18)_1px,transparent_1px)] [background-position:top_left] [background-size:18px_18px] bg-white">
+        <div className={`${containerClass} flex min-h-[76px] items-center sm:min-h-[92px]`}>
+          <a className="inline-flex items-center no-underline" href="/" aria-label={t('logoAlt')}>
+            <span className="inline-flex min-h-12 items-center bg-white px-3">
+              <img className="block" src="ES_Logo.svg" alt={t('logoAlt')} />
+            </span>
           </a>
         </div>
       </div>
