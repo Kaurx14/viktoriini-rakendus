@@ -1,5 +1,22 @@
 {
   "topBarTitle": "Statistics Estonia: Quiz",
   "languageSwitcherLabel": "Language switcher",
-  "logoAlt": "Statistics Estonia logo"
+  "logoAlt": "Statistics Estonia logo",
+  "questionLabel": "Question {{current}} / {{total}}",
+  "correctAnswer": "Correct Answer!",
+  "wrongAnswer": "Wrong. The correct answer is:",
+  "resultsTitle": "Results",
+  "scoreLabel": "Score: {{score}} / {{total}}",
+  "tableQuestion": "Question",
+  "tableSelectedAnswer": "Selected answer",
+  "tableResult": "Result",
+  "tableCorrect": "Correct",
+  "tableIncorrect": "Incorrect",
+  "resultMessagePerfect": "Excellent work. You answered everything correctly.",
+  "resultMessageGood": "Good result. You know Estonia quite well already.",
+  "resultMessageLow": "A solid start. Try again and improve your score.",
+  "restartQuiz": "Again",
+  "footerContactsTitle": "Contacts",
+  "EU": "European Union",
+  "pageTitle": "Quiz | Statistics Estonia"
 }

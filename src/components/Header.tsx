@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useTranslation } from 'react-i18next'
 
 export function Header() {
@@ -7,12 +8,16 @@ export function Header() {
   const languageButtonClass =
     'cursor-pointer border-0 bg-transparent p-0 text-[13px] leading-[1.2] font-bold sm:text-[14px]'
 
+  // Keele muutumisel, vaheta ka index.html title
+  useEffect(() => {
+    document.title = t("pageTitle")
+  }, [i18n.language, t])
+
+
   return (
     <header className="w-full">
       <div className="bg-black text-white">
-        <div
-          className={`${containerClass} flex min-h-10 items-center justify-between gap-4`}
-        >
+        <div className={`${containerClass} flex min-h-10 items-center justify-between gap-4`}>
           <span className="text-[13px] leading-[1.2] font-bold sm:text-[14px]">
             {t('topBarTitle')}
           </span>
@@ -49,11 +54,11 @@ export function Header() {
         </div>
       </div>
 
-      <div className="border-b border-[#dddddd] bg-[radial-gradient(circle,rgba(0,0,0,0.18)_1px,transparent_1px)] [background-position:top_left] [background-size:18px_18px] bg-white">
+      <div className="border-b border-[#dddddd] bg-[radial-gradient(circle,rgba(0,0,0,0.3)_1px,transparent_1px)] [background-position:top_left] [background-size:18px_18px] bg-white">
         <div className={`${containerClass} flex min-h-[76px] items-center sm:min-h-[92px]`}>
           <a className="inline-flex items-center no-underline" href="/" aria-label={t('logoAlt')}>
-            <span className="inline-flex min-h-12 items-center bg-white px-3">
-              <img className="block" src="ES_Logo.svg" alt={t('logoAlt')} />
+            <span className="inline-flex items-center bg-white px-3">
+              <img className="block h-13 w-auto" src={language == 'en' ? "ES_Logo_ENG.jpg": "ES_Logo.svg"} alt={t('logoAlt')} />
             </span>
           </a>
         </div>
